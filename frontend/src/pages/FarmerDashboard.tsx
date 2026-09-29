@@ -70,7 +70,6 @@ const conditionIcon: Record<string, any> = {
 
 // ── Component ──────────────────────────────────────────────
 const FarmerDashboard = () => {
-  const { t } = useTranslation();
   const { user } = useAuth();
   const [loading, setLoading]     = useState(true);
   const [openAdv, setOpenAdv]     = useState<number | null>(null);
@@ -237,7 +236,7 @@ const FarmerDashboard = () => {
             <XAxis dataKey="day" tick={{ fontSize: 12 }} />
             <YAxis yAxisId="t" domain={[20, 38]} unit="°" tick={{ fontSize: 11 }} />
             <YAxis yAxisId="r" orientation="right" domain={[0, 35]} unit="mm" tick={{ fontSize: 11 }} />
-            <Tooltip formatter={(v: any, n: string) => [n === 'temp' ? `${v}°C` : `${v}mm`, n === 'temp' ? 'Temperature' : 'Rainfall']} />
+            <Tooltip formatter={(v: any, n?: any) => [n === 'temp' ? `${v}°C` : `${v}mm`, n === 'temp' ? 'Temperature' : 'Rainfall']} />
             <Legend />
             <Bar  yAxisId="r" dataKey="rain" name="Rainfall (mm)" fill="#93C5FD" radius={[4,4,0,0]} opacity={0.8} />
             <Line yAxisId="t" type="monotone" dataKey="temp" name="Temperature (°C)" stroke="#0B5D3B" strokeWidth={3} dot={{ r: 4, fill: '#0B5D3B' }} />

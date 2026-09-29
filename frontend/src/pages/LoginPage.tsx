@@ -40,7 +40,6 @@ const LoginPage = () => {
   const [regEmail, setRegEmail] = useState('');
   const [regPass, setRegPass] = useState('');
   const [regRole, setRegRole] = useState('FARMER');
-  const [regState] = useState('Maharashtra');
   const [regDistrict, setRegDistrict] = useState('Pune');
   const [regBlock, setRegBlock] = useState('Haveli');
   const [regPanchayat, setRegPanchayat] = useState('Uruli Kanchan');

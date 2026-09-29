@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CloudRain, Map as MapIcon, Sprout, ShieldAlert, ArrowRight, Cpu, Database, Globe, FlaskConical, ExternalLink } from 'lucide-react';
 

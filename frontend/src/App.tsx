@@ -13,7 +13,7 @@ import OfficerDashboard from './pages/OfficerDashboard';
 import FarmerSettings   from './pages/FarmerSettings';
 import MyCrops          from './pages/MyCrops';
 
-import { CloudRain, Sprout, Shield, LogOut, ChevronDown, User, Settings, Leaf } from 'lucide-react';
+import { Sprout, Shield, LogOut, ChevronDown, User, Settings, Leaf } from 'lucide-react';
 
 // ─────────────────────────────────────────────────────────────
 // Farmer Layout — green branded nav
@@ -178,7 +178,7 @@ function StaffLayout({ children }: { children: React.ReactNode }) {
 // Protected Route wrappers
 // ─────────────────────────────────────────────────────────────
 function FarmerRoute({ children }: { children: React.ReactNode }) {
-  const { isAuthenticated, user } = useAuth();
+  const { isAuthenticated } = useAuth();
   if (!isAuthenticated) return <Navigate to="/farmer/login" replace />;
   // Staff trying to access farmer route — still allow (they can view)
   return <FarmerLayout>{children}</FarmerLayout>;

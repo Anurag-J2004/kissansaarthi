@@ -4,7 +4,7 @@ import { useAuth } from '../context/AuthContext';
 import { apiUpdateProfile } from '../services/api';
 import {
   Play, BarChart2, MapPin, Cpu, AlertTriangle, CheckCircle, Info,
-  ChevronRight, Settings, User, Bell, Database, Download, RefreshCw,
+  Settings, User, Bell, Database, Download, RefreshCw,
   Save, Loader2,
 } from 'lucide-react';
 import {

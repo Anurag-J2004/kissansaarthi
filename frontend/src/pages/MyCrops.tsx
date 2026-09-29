@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { apiGetCrops, apiAddCrop, apiDeleteCrop } from '../services/api';
 import { useAuth } from '../context/AuthContext';
-import { Plus, Trash2, Sprout, Loader2, CloudRain, Thermometer, Droplets, AlertTriangle, CheckCircle, Info } from 'lucide-react';
+import { Plus, Trash2, Sprout, Loader2, CloudRain, Thermometer, Droplets, AlertTriangle, CheckCircle } from 'lucide-react';
 
 // ── Crop knowledge base ────────────────────────────────────
 const CROP_CATALOG = [
