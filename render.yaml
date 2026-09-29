@@ -1,0 +1,25 @@
+services:
+  # ── FastAPI Backend ─────────────────────────────────────
+  - type: web
+    name: kissansaarthi-backend
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    plan: free
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true          # Render auto-generates a secure random value
+      - key: DATABASE_URL
+        fromDatabase:
+          name: kissansaarthi-db
+          property: connectionString
+      - key: PYTHON_VERSION
+        value: "3.11.0"
+
+  # ── PostgreSQL Database ──────────────────────────────────
+databases:
+  - name: kissansaarthi-db
+    databaseName: kissansaarthi
+    user: kissanuser
+    plan: free
