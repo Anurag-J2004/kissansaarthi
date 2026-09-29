@@ -2,14 +2,16 @@ import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base, sessionmaker
 
-# Supports both MariaDB (local) and PostgreSQL (Render/Railway/Supabase)
+# Supports both MariaDB (local) and PostgreSQL (Render/Railway)
 DATABASE_URL = os.getenv("DATABASE_URL", "mysql+pymysql://kisanuser:kisanpass@localhost:3306/kisan-saarthi")
 
-# Railway/Render give postgres:// URLs — SQLAlchemy needs postgresql://
+# Render/Railway give postgres:// — fix to postgresql+psycopg2://
+# This forces SQLAlchemy 2.x to use psycopg2 (not psycopg3)
 if DATABASE_URL.startswith("postgres://"):
-    DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
+    DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql+psycopg2://", 1)
+elif DATABASE_URL.startswith("postgresql://"):
+    DATABASE_URL = DATABASE_URL.replace("postgresql://", "postgresql+psycopg2://", 1)
 
-# Choose driver based on URL scheme
 connect_args = {}
 if "sqlite" in DATABASE_URL:
     connect_args = {"check_same_thread": False}
